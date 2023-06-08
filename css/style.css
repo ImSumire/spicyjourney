@@ -1,0 +1,176 @@
+:root {
+  --black: #00120b; /* Night */
+  --white: #e0e4e7; /* Platinum */
+}
+
+/* https://coolors.co/7cb649-fa7d51-24acb9-e6e6ea-00120b */
+
+.theme-dark {
+  --bg: var(--black);
+  --text: var(--white);
+  --gradient: linear-gradient(to top, transparent, #000000c5);
+}
+
+.theme-light {
+  --bg: var(--white);
+  --text: var(--black);
+  --gradient: linear-gradient(to top, transparent, #ffffffc5);
+}
+
+@font-face {
+  src: url("../font/8-bit.ttf");
+  font-family: pixel;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  transition: background 2s;
+}
+
+* {
+  font-family: pixel;
+  color: var(--text);
+}
+
+p, h2, h3 {
+    transition: color 2s ease;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fixed-enter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%);
+  }
+}
+
+#background {
+  z-index: -1;
+  min-width: 100%;
+  min-height: 900px;
+  position: absolute;
+  background: var(--bg);
+}
+
+#gradient {
+  z-index: 1;
+  width: 100%;
+  height: 300px;
+  position: fixed;
+  background: var(--gradient);
+}
+
+#logo {
+  top: 20px;
+  left: 3vw;
+  z-index: 2;
+  height: 120px;
+  position: fixed;
+  transition: opacity 1s;
+  animation: enter 1s ease-in;
+}
+
+#title {
+  top: 30px;
+  left: 50%;
+  z-index: 2;
+  cursor: default;
+  position: fixed;
+  color: var(--text);
+  transition: all 2s ease;
+  transform: translateX(-50%);
+  animation: fixed-enter 1s ease-in;
+}
+
+#theme-toggle {
+  top: 53px;
+  z-index: 2;
+  right: 3vw;
+  font-size: 10px;
+  position: fixed;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  background: transparent;
+  color: var(--text);
+  transition: all 1s ease;
+  animation: enter 1s ease-in;
+  border: 4px solid var(--text);
+}
+
+#theme-toggle:hover {
+  color: var(--bg);
+  background: var(--text);
+}
+
+@media screen and (max-width: 700px) {
+  #logo {
+    opacity: 0 !important;
+  }
+
+  #theme-toggle {
+    background: var(--text);
+  }
+
+  #theme-toggle::after {
+    content: " ";
+  }
+}
+
+p {
+  font-size: 14px;
+}
+
+.heading {
+  padding-top: 50px;
+  text-decoration: underline;
+}
+
+a {
+  color: #215970;
+}
+
+#arrow {
+  writing-mode: vertical-lr;
+  transform: rotate(90deg) translateY(calc(-50vw + 54px));
+}
+
+#content {
+  z-index: 0;
+  top: 800px;
+  position: absolute;
+  background: var(--bg);
+  transition: background 2s;
+  padding: 40px 40px 40px 40px;
+}
+
+#terrain {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.leaf {
+  z-index: 5;
+  position: fixed;
+  transition: transform 1s linear;
+}

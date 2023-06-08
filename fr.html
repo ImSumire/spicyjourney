@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/res/sprites/Characters/right/3.png"
+    />
+    <title>Spicy Journey</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      #theme-toggle::after {
+        content: "CHANGER LE THEME";
+      }
+
+      @media screen and (max-width: 900px) {
+        #theme-toggle::after {
+          content: "THEME";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <!-- Background -->
+      <img
+        src="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/screenshots/2023-04-11_22.36.12.768953.png"
+        id="background"
+      />
+      <!-- Gradient -->
+      <div id="gradient"></div>
+
+      <!-- Navbar -->
+      <img
+        src="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/res/sprites/logo.png"
+        alt="Spicy Journey Logo"
+        id="logo"
+      />
+
+      <h2 id="title">Spicy Journey</h2>
+
+      <button id="theme-toggle" onclick="toggleTheme()"></button>
+    </main>
+
+    <section id="content">
+      <span id="arrow">^</span>
+      <h2 class="heading">A propos</h2>
+      <p>
+        Spicy Journey est un jeu qui vous aidera a vous detendre et a vous
+        relaxer en explorant un monde genere de maniere procedurale rempli de
+        forêts luxuriantes. en explorant un monde genere de maniere procedurale
+        et rempli de forêts luxuriantes. Avec son point de vue isometrique et
+        son style pixel art, Spicy Journey isometrique et son style pixel art,
+        Spicy Journey est un jeu retro-visuel retro-visuel qui ne manquera pas
+        de vous captiver. Spicy Journey offre des possibilites infinies
+        d'exploration et de decouverte. Aucun jeu n'est identiques, ce qui vous
+        permet de revenir a Spicy Journey encore et encore pour une nouvelle
+        experience. Si vous cherchez un jeu qui vous aide a vous detendre, ne
+        cherchez pas plus loin que Spicy Journey. et a vous detendre, ne
+        cherchez pas plus loin que Spicy Journey. Avec ses magnifiques forêts,
+        son style pixel art charmant et ses possibilites d'exploration
+        d'exploration, c'est le jeu parfait pour tous ceux qui cherchent a
+        s'evader dans un monde paisible et immersif. dans un monde paisible et
+        immersif.
+      </p>
+
+      <h2 class="heading">L'histoire</h2>
+      L'histoire se deroule dans un monde fantastique rempli de magie et de
+      mystere. Le personnage que vous contrôlez est une jeune femme japonaise
+      nommee Hana, nee dans un petit village isole niche dans une forêt
+      luxuriante. Hana est une cuisiniere passionnee et a herite de sa
+      grand-mere un livre de recettes traditionnelles japonaises. Les
+      ingredients dont elle a besoin pour cuisiner ces plats sont disperses dans
+      le monde entier. monde. Elle a decide de partir a l'aventure pour les
+      collecter et les cuisiner afin de perpetuer les traditions familiales et
+      de payer les frais de transport. perpetuer les traditions familiales et
+      rendre hommage a sa grand-mere. Elle se lance dans un incroyable voyage a
+      travers la nature, decouvrant des secrets mystiques sur le monde qui
+      l'entoure. secrets mystiques sur le monde qui l'entoure. En chemin, Hana
+      rencontre personnages fascinants qui l'aident dans sa quête, comme les
+      marchands qui lui des marchands qui lui vendent des ingredients utiles
+      pour ses recettes.
+
+      <h2 class="heading">Comment le monde est genere ?</h2>
+      <canvas id="terrain" width="1000" height="600"></canvas>
+      <br />Afin de creer un monde realiste, nous avons choisi une frequence
+      basse et une amplitude suffisamment elevee pour creer des reliefs
+      interessants. amplitude suffisamment elevee pour creer des reliefs
+      interessants. Nous avons ensuite applique quelques regles simples : si le
+      terrain est en dessous de la hauteur de l'eau, alors on ajoute de l'eau,
+      qui est animee avec un simple cos. l'eau, qui est animee par un simple
+      cos.
+      <br />
+      <br />
+      <br />
+      <h3>Nous utilisons simplement le Simplex Noise !</h3>
+      <br />
+      <br />Bibliotheque utilisee :
+      <a href="https://pypi.org/project/noise/">Noise (python)</a>
+      <br />
+      <br /><a href="https://en.wikipedia.org/wiki/Perlin_noise"
+        >Perlin Noise</a
+      >
+      est un type de generateur de textures procedurales invente par
+      <a href="https://en.wikipedia.org/wiki/Ken_Perlin">Ken Perlin</a> en
+      1985.Il s'agit d'une fonction qui genere une apparence pseudo-aleatoire,
+      ce qui signifie que la sortie semble être aleatoire, mais qu'elle est en
+      realite deterministe. que la sortie semble aleatoire, mais qu'elle est en
+      fait deterministe et peut être peut être facilement contrôlee en modifiant
+      ses parametres d'entree ou sa "graine".
+      <br />
+      <br />Le bruit de Perlin est couramment utilise pour generer differents
+      types de textures, telles que les nuages, les terrains et les marbres. Il
+      est egalement utilise dans de nombreux jeux video pour creer des paysages
+      realistes et dynamiques, ainsi que dans l'animation et les effets speciaux
+      cinematographiques. d'animation et d'effets speciaux cinematographiques.
+      L'algorithme est base sur une grille de vecteurs de gradient vecteurs de
+      gradient qui sont utilises pour interpoler entre les points de treillis
+      afin de produire le resultat final. la sortie finale.
+      <br />
+      <br />Le bruit de Perlin a ete ameliore au fil des ans, et l'une des
+      variantes les plus utilisees est le bruit simplex, qui est plus rapide et
+      plus efficace. l'une des variantes les plus utilisees est le bruit
+      Simplex, qui est plus rapide et plus plus rapide et plus efficace que
+      l'algorithme original. Il utilise une grille simplex plus optimale
+      optimale au lieu d'une grille reguliere, ce qui donne des textures plus
+      lisses et plus naturelles. plus lisses et plus naturelles.
+      <br />
+      <br />Dans l'ensemble, Perlin Noise (et Simplex Noise) sont des outils
+      puissants pour generer des textures realistes et variees pour diverses
+      applications, y compris les jeux video, l'animation et l'art numerique.
+      <br />
+      <br />Veuillez regarder cette video :
+      <br />
+      <br />
+      <iframe
+        width="600"
+        height="336"
+        src="https://www.youtube.com/embed/CSa5O6knuwI"
+      ></iframe>
+      <br />
+      <br />
+      <br />
+      Code source :
+      <a href="https://github.com/ImSumire/Spicy-Journey/tree/main">Github</a>
+      <br />-
+      <a
+        href="https://github.com/ImSumire/Spicy-Journey/wiki/Creative-inspirations"
+        >Inspirations</a
+      >
+      <br />-
+      <a href="https://github.com/ImSumire/Spicy-Journey/wiki/World">Monde</a>
+    </section>
+  </body>
+  <script src="js/perlin.js"></script>
+  <!-- <script src="js/utils.js"></script> -->
+  <script src="js/script.js"></script>
+</html>

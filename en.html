@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/res/sprites/Characters/right/3.png"
+    />
+    <title>Spicy Journey</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      #theme-toggle::after {
+        content: "TOGGLE THEME";
+      }
+
+      @media screen and (max-width: 900px) {
+        #theme-toggle::after {
+          content: "TOGGLE";
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <!-- Background -->
+      <img
+        src="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/screenshots/2023-04-11_22.36.12.768953.png"
+        id="background"
+      />
+      <!-- Gradient -->
+      <div id="gradient"></div>
+
+      <!-- Navbar -->
+      <img
+        src="https://raw.githubusercontent.com/ImSumire/Spicy-Journey/main/res/sprites/logo.png"
+        alt="Spicy Journey Logo"
+        id="logo"
+      />
+
+      <h2 id="title">Spicy Journey</h2>
+
+      <button id="theme-toggle" onclick="toggleTheme()"></button>
+    </main>
+
+    <section id="content">
+      <span id="arrow">^</span>
+      <h2 class="heading">About</h2>
+      <p>
+        Spicy Journey is a game that will help you relax and unwind as you
+        explore a procedurally generated world filled with lush forests. With
+        its isometric viewpoint and pixel art style, Spicy Journey is a
+        retro-visual game that is sure to captivate you. Spicy Journey offers
+        endless possibilities for exploration and discovery. No two games are
+        the same, so you can come back to Spicy Journey again and again for a
+        new experience. If you're looking for a game that will help you relax
+        and unwind, look no further than Spicy Journey. With its beautiful
+        forests, charming pixel art style, and endless exploration
+        possibilities, it's the perfect game for anyone looking to escape into a
+        peaceful and immersive world.
+      </p>
+
+      <h2 class="heading">The lore</h2>
+
+      The story takes place in a fantasy world filled with magic and mystery.
+      The character you control is a young Japanese woman named Hana, born in a
+      small remote village nestled in a lush forest. Hana is an avid cook and
+      has inherited her traditional Japanese recipe book from her grandmother.
+      The ingredients she needs to cook these dishes are scattered all over the
+      world. She decided to go on an adventure to collect and cook them in order
+      to perpetuate the family traditions and pay tribute to her grandmother.
+      She embarks on an incredible journey through the wilderness, discovering
+      mystical secrets about the world around her. Along the way, Hana meets
+      fascinating characters who help her on her quest, such as merchants who
+      sell her useful ingredients for her recipes.
+
+      <h2 class="heading">How is the world generated ?</h2>
+      <canvas id="terrain" width="1000" height="600"></canvas>
+      <br />In order to create a realistic world, we chose a low frequency and a
+      high enough amplitude to create interesting reliefs. Then we applied some
+      simple rules: if the terrain is below the height of the water, then add
+      water, which is animated with a simple cos.
+      <br />
+      <br />
+      <br />
+      <h3>We simply use the Simplex Noise !</h3>
+      <br />
+      <br />Library we use :
+      <a href="https://pypi.org/project/noise/">Noise (python)</a>
+      <br />
+      <br /><a href="https://en.wikipedia.org/wiki/Perlin_noise"
+        >Perlin Noise</a
+      >
+      is a type of procedural texture generator that was invented by
+      <a href="https://en.wikipedia.org/wiki/Ken_Perlin">Ken Perlin</a> in 1985.
+      It is a function that generates a pseudo-random appearance, which means
+      that the output appears to be random, but it is actually deterministic and
+      can be easily controlled by changing its input parameters or "seed".
+      <br />
+      <br />Perlin Noise is commonly used to generate various types of textures,
+      such as clouds, terrain, and marble. It is also used in many video games
+      to create realistic and dynamic landscapes, as well as in animation and
+      movie special effects. The algorithm is based on a grid of gradient
+      vectors that are used to interpolate between the lattice points to produce
+      the final output.
+      <br />
+      <br />Perlin Noise has been improved over the years, and one of the most
+      commonly used variants is Simplex Noise, which is faster and more
+      efficient than the original algorithm. It uses a more optimal simplex grid
+      instead of a regular grid, resulting in smoother and more natural-looking
+      textures.
+      <br />
+      <br />Overall, Perlin Noise (and Simplex Noise) are powerful tools for
+      generating realistic and varied textures for various applications,
+      including video games, animation, and digital art.
+      <br />
+      <br />Please watch this video :
+      <br />
+      <br />
+      <iframe
+        width="600"
+        height="336"
+        src="https://www.youtube.com/embed/CSa5O6knuwI"
+      ></iframe>
+      <br />
+      <br />
+      <br />
+      Code source :
+      <a href="https://github.com/ImSumire/Spicy-Journey/tree/main">Github</a>
+      <br />-
+      <a
+        href="https://github.com/ImSumire/Spicy-Journey/wiki/Creative-inspirations"
+        >Inspirations</a
+      >
+      <br />-
+      <a href="https://github.com/ImSumire/Spicy-Journey/wiki/World">World</a>
+    </section>
+  </body>
+  <script src="js/perlin.js"></script>
+  <!-- <script src="js/utils.js"></script> -->
+  <script src="js/script.js"></script>
+</html>
